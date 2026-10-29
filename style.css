@@ -1,0 +1,73 @@
+/* style.css dimuat SETELAH Bootstrap, jadi aturan di sini menimpa bawaan Bootstrap.
+   Bootstrap mengurus layout (navbar, grid, card, offcanvas, modal, accordion, form);
+   file ini hanya berisi identitas visual toko (warna hitam, putih, merah). */
+
+/* ===== Variabel warna ===== */
+:root {
+    --hitam: #0d0d0d;
+    --putih: #ffffff;
+    --abu: #f1f1ef;
+    --teks: #1b1b1b;
+    --redup: #6b6b6b;
+    --aksen: #c8102e;
+    --garis: #e3e3df;
+}
+
+/* ===== Dasar halaman ===== */
+html { scroll-padding-top: 4.5rem; }
+body { font-family: "Segoe UI", Arial, Helvetica, sans-serif; color: var(--teks); }
+h1, h2, h3 { line-height: 1.15; text-transform: uppercase; letter-spacing: .04em; font-family: "Arial Narrow", Arial, sans-serif; font-weight: 700; }
+:focus-visible { outline: 3px solid #ffb703; outline-offset: 2px; }
+.lompat { position: absolute; left: -999px; }
+.lompat:focus { left: 1rem; top: 1rem; z-index: 2000; background: #ffb703; color: #000; padding: .5rem 1rem; }
+
+/* ===== Warna tombol Bootstrap disesuaikan ke tema toko ===== */
+.btn-dark { --bs-btn-bg: var(--hitam); --bs-btn-border-color: var(--hitam);
+            --bs-btn-hover-bg: var(--aksen); --bs-btn-hover-border-color: var(--aksen);
+            --bs-btn-active-bg: var(--aksen); --bs-btn-active-border-color: var(--aksen); }
+.btn-outline-dark { --bs-btn-color: var(--hitam); --bs-btn-border-color: var(--hitam);
+                    --bs-btn-hover-bg: var(--hitam); --bs-btn-hover-border-color: var(--hitam);
+                    --bs-btn-active-bg: var(--hitam); --bs-btn-active-border-color: var(--hitam); }
+.btn { border-radius: 0; }
+
+/* ===== Header ===== */
+.logo { font-family: "Arial Narrow", Arial, sans-serif; font-size: 1.3rem; font-weight: 700; letter-spacing: .06em; color: var(--hitam); }
+.navbar .nav-link { color: var(--teks); }
+.navbar .nav-link:hover { color: var(--aksen); }
+
+/* ===== Hero (tanpa gambar eksternal, jadi tidak ada error 404) ===== */
+.hero { min-height: 70vh; background: linear-gradient(rgba(0,0,0,.55), rgba(0,0,0,.7)), #15261c; }
+.hero-isi { max-width: 760px; }
+.hero-label { letter-spacing: .25em; text-transform: uppercase; font-size: .85rem; }
+.hero h1 { font-size: clamp(2.2rem, 7vw, 4.2rem); }
+
+/* ===== Judul bagian ===== */
+section h2 { font-size: clamp(1.5rem, 4vw, 2rem); }
+
+/* ===== Kartu produk ===== */
+.produk { background: transparent; }
+.foto { position: relative; aspect-ratio: 1 / 1; background: var(--abu); overflow: hidden; cursor: zoom-in; }
+.foto img { width: 100%; height: 100%; object-fit: cover; display: block; transition: transform .3s; }
+.produk:hover .foto img { transform: scale(1.04); }
+.foto.kosong { cursor: default; }
+.foto.kosong img { display: none; }
+.foto.kosong::after { content: attr(data-petunjuk); position: absolute; inset: 0; display: flex; align-items: center; justify-content: center; padding: 1rem; font-size: .8rem; color: var(--redup); }
+.produk .card-title { font-family: "Segoe UI", Arial, sans-serif; text-transform: none; letter-spacing: 0; font-size: .95rem; font-weight: 600; }
+
+/* ===== Keunggulan, FAQ, footer ===== */
+.keunggulan { background: var(--abu); }
+.keunggulan h3 { font-size: 1.1rem; }
+.faq { max-width: 760px; }
+.accordion-button:not(.collapsed) { color: var(--hitam); background: var(--abu); }
+.footer { background: var(--hitam); }
+.form-info { max-width: 460px; }
+.footer .invalid-feedback { color: #ffa8a8; }
+.pesan { min-height: 1.5rem; font-weight: 600; color: #8ce99a; }
+.hak-cipta { margin: 2rem 0 0; font-size: .8rem; color: #a0a0a0; }
+
+/* ===== Keranjang ===== */
+.rincian { font-size: .85rem; color: var(--redup); }
+
+@media (prefers-reduced-motion: reduce) {
+    * { transition: none !important; scroll-behavior: auto !important; }
+}
